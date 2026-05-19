@@ -1,0 +1,78 @@
+const clinicConfig = {
+  name: "SmileCare Dental Clinic",
+  tagline: "Gentle, Painless Dental Care You Can Trust",
+  phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || "+919699577641",
+  whatsapp: process.env.NEXT_PUBLIC_CLINIC_WHATSAPP || "+919699577641",
+  email: "hello@smilecare.in",
+  address: "123 FC Road, Shivajinagar, Pune, Maharashtra 411005",
+  experienceYears: 20,
+  googleRating: 4.9,
+  happyPatients: "10,000+",
+  googleMapsKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
+  seo: {
+    title: "SmileCare Dental Clinic — Gentle, Painless Dental Care",
+    description:
+      "Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.",
+    keywords: [
+      "dental clinic",
+      "dentist Pune",
+      "teeth whitening",
+      "dental implants",
+      "orthodontics",
+      "painless dentistry",
+    ],
+  },
+  nav: [
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/#services" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ],
+  hours: [
+    { day: "Monday – Saturday", time: "9:00 AM – 8:00 PM" },
+    { day: "Sunday", time: "10:00 AM – 2:00 PM" },
+  ],
+  googleMapsUrl: "https://maps.google.com/?q=SmileCare+Dental+Clinic+Pune+Maharashtra",
+  practoUrl: "",
+  social: {
+    instagram: "https://instagram.com/smilecaredental",
+    facebook: "https://facebook.com/smilecaredental",
+  },
+  messages: {
+    consultation: "Hello! I'd like to book a free consultation at SmileCare Dental Clinic. Please let me know your available slots.",
+    appointment: "Hello! I'd like to book an appointment at SmileCare Dental Clinic.",
+  },
+  services: [
+    "General Check-up & Cleaning",
+    "Teeth Whitening",
+    "Root Canal Treatment",
+    "Dental Implants",
+    "Orthodontics / Braces",
+    "Veneers & Smile Makeover",
+    "Tooth Extraction",
+    "Pediatric Dentistry",
+    "Emergency Dental Care",
+    "Other",
+  ],
+  doctor: {
+    name: "Dr. Priya Patel",
+    qualifications: "BDS, MDS (Conservative Dentistry & Endodontics)",
+    registration: "MH-DEN-45678",
+    experienceYears: 20,
+    university: "Maharashtra University of Health Sciences, Nashik",
+    city: "Pune",
+    yearsInCity: 15,
+    photo: "/images/team/dr-priya.webp",
+    languages: ["English", "Hindi", "Marathi"],
+    specialInterests: [
+      "Painless Root Canal Treatment",
+      "Smile Designing & Veneers",
+      "Full Mouth Rehabilitation",
+      "Pediatric Dentistry",
+    ],
+    idaMember: true,
+    idaMembershipNo: "IDA-MH-34521",
+  },
+};
+
+export default clinicConfig;
