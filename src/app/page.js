@@ -1,14 +1,18 @@
+import Image from "next/image";
+import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import ServiceCard from "./components/ServiceCard";
-import TestimonialsCarousel from "./components/TestimonialsCarousel";
-import DoctorProfile from "./components/DoctorProfile";
-import FAQ from "./components/FAQ";
-import WhatsAppWidget from "./components/WhatsAppWidget";
 import clinicConfig from "./lib/clinicConfig";
 import { SectionGrid } from "./components/ui/SectionGrid";
 import { getFAQSchema } from "@/lib/schemaMarkup";
+
+// Lazy loaded heavy components
+const TestimonialsCarousel = dynamic(() => import("./components/TestimonialsCarousel"), { ssr: false, loading: () => <div className="h-64 animate-pulse bg-gray-100 rounded-xl"></div> });
+const DoctorProfile = dynamic(() => import("./components/DoctorProfile"));
+const FAQ = dynamic(() => import("./components/FAQ"));
+const WhatsAppWidget = dynamic(() => import("./components/WhatsAppWidget"), { ssr: false });
 
 export const metadata = {
   title: clinicConfig.seo.title,
@@ -216,13 +220,14 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {clinicTour.map(({ label, src, position }) => (
-                <div key={label} className="relative aspect-video rounded-2xl overflow-hidden group shadow-md">
-                  <img
+                <div key={label} className="relative aspect-video rounded-2xl overflow-hidden group shadow-md bg-gray-100">
+                  <Image
                     src={src}
                     alt={label}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                     style={{ objectPosition: position || "center center" }}
-                    loading="lazy"
+                    sizes="(max-width: 768px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 px-3 py-2">
@@ -256,7 +261,7 @@ export default function HomePage() {
               <h2 className="section-title">Visit Our Clinic</h2>
               <p className="text-gray-500 text-sm">{clinicConfig.address}</p>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-lg w-full h-80 border border-gray-200 relative">
+            <div className="rounded-2xl overflow-hidden shadow-lg w-full h-80 border border-gray-200 relative bg-gray-100">
               <iframe
                 title={`Location of ${clinicConfig.name}`}
                 src="https://www.openstreetmap.org/export/embed.html?bbox=73.8267%2C18.5104%2C73.8867%2C18.5504&layer=mapnik&marker=18.5304%2C73.8567"

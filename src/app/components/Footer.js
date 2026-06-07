@@ -75,7 +75,7 @@ export default function Footer() {
             <Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link>
           </div>
           <p className="text-gray-500 text-sm">
-            Crafted with care by{" "}
+            Powered by{" "}
             <a
               href="https://invictus-ai.in/"
               target="_blank"
