@@ -1,4 +1,4 @@
-import clinicConfig from "@/app/lib/clinicConfig";
+import { clinicConfig } from "@/app/lib/clinic-config";
 
 const domain =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -16,13 +16,13 @@ export function getLocalBusinessSchema() {
     image: `${domain}/images/logo.jpg`,
     "@id": domain,
     url: domain,
-    telephone: clinicConfig.phone,
-    email: clinicConfig.email,
+    telephone: clinicConfig.contact.phone_primary,
+    email: clinicConfig.contact.email,
     priceRange: "₹₹",
     address: {
       "@type": "PostalAddress",
-      streetAddress: clinicConfig.address,
-      addressLocality: clinicConfig.doctor.city,
+      streetAddress: clinicConfig.contact.address_full,
+      addressLocality: 'Pune',
       addressRegion: "Karnataka",
       postalCode: "560034",
       addressCountry: "IN",
@@ -48,7 +48,7 @@ export function getLocalBusinessSchema() {
     ],
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: clinicConfig.googleRating,
+      ratingValue: clinicConfig.stats.google_rating,
       bestRating: "5",
       reviewCount: "2000",
     },
@@ -100,7 +100,7 @@ export function getServiceSchema(service) {
  * Schema.org Person schema for the doctor profile.
  */
 export function getDoctorSchema() {
-  const doc = clinicConfig.doctor;
+  const doc = clinicConfig.doctors[0];
   return {
     "@context": "https://schema.org",
     "@type": "Physician",

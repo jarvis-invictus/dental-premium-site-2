@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import clinicConfig from "../lib/clinicConfig";
+import { clinicConfig } from "../lib/clinic-config";
 import { generateMeta } from "@/lib/meta";
 
 export const metadata = generateMeta("terms");
@@ -56,7 +56,7 @@ export default function TermsOfServicePage() {
             <h2>6. Governing Law</h2>
             <p>
               These terms are governed by the laws of India. Any disputes shall be subject to the exclusive
-              jurisdiction of courts in {clinicConfig.doctor.city}, Maharashtra.
+              jurisdiction of courts in {'Pune'}, Maharashtra.
             </p>
 
             <h2>7. Changes to Terms</h2>
@@ -68,7 +68,7 @@ export default function TermsOfServicePage() {
             <h2>8. Contact</h2>
             <p>
               Questions? Reach us at{" "}
-              <a href={`mailto:${clinicConfig.email}`}>{clinicConfig.email}</a>.
+              <a href={`mailto:${clinicConfig.contact.email}`}>{clinicConfig.contact.email}</a>.
             </p>
           </div>
         </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import clinicConfig from "../lib/clinicConfig";
+import { clinicConfig } from "../lib/clinic-config";
 
 /**
  * WhatsAppWidget — persistent floating WhatsApp button.
@@ -58,8 +58,8 @@ export default function WhatsAppWidget() {
   }, []);
 
   function handleClick() {
-    const wa = clinicConfig.whatsapp.replace(/[^0-9]/g, "");
-    const msg = encodeURIComponent(clinicConfig.messages.consultation);
+    const wa = clinicConfig.contact.phone_whatsapp.replace(/[^0-9]/g, "");
+    const msg = encodeURIComponent(clinicConfig.whatsapp_default_message);
     window.open(`https://wa.me/${wa}?text=${msg}`, "_blank", "noopener,noreferrer");
   }
 

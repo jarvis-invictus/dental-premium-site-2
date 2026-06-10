@@ -7,6 +7,7 @@ import {
   ScanLine, Zap, Camera, Monitor, Wind, CheckCircle2,
   Drill,
 } from "lucide-react";
+import { clinicConfig } from '../lib/clinic-config';
 import { BlurFade } from "./ui/BlurFade";
 import { SectionGrid } from "./ui/SectionGrid";
 
@@ -32,7 +33,12 @@ export default function AboutClient({ stats, timeline, values, technology, missi
       <section className="relative overflow-hidden bg-white border-b border-gray-100 section-padding" id="stats">
         <SectionGrid />
         <div className="container-custom grid grid-cols-2 md:grid-cols-4 gap-6 relative z-10">
-          {stats.map(({ value, label, iconName }, i) => (
+          {[
+    { id: 1, value: clinicConfig.stats.patients_treated, label: 'Happy Patients' },
+    { id: 2, value: clinicConfig.stats.years_experience, label: 'Years of Experience' },
+    { id: 3, value: '15+', label: 'Specialist Procedures' },
+    { id: 4, value: clinicConfig.stats.google_rating, label: 'Google Rating' }
+  ].map(({ value, label, iconName }, i) => (
             <BlurFade key={label} delay={0.1 * i} duration={0.45} inView>
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-300">
                 <div className="w-11 h-11 rounded-xl bg-primary-blue/10 flex items-center justify-center mb-3">

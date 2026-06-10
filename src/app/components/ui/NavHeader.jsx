@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navLinks } from "../../lib/data";
+
 
 function NavHeader() {
   const pathname = usePathname();
@@ -19,7 +19,7 @@ function NavHeader() {
       className="relative mx-auto flex w-fit rounded-full border-2 border-primary-blue bg-white p-1"
       onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
     >
-      {navLinks.map(({ href, label }) => (
+      {[{ href: '/', label: 'Home' }, { href: '/services', label: 'Services' }, { href: '/about', label: 'About' }, { href: '/contact', label: 'Contact' }].map(({ href, label }) => (
         <Tab key={href} href={href} active={pathname === href} setPosition={setPosition}>
           {label}
         </Tab>

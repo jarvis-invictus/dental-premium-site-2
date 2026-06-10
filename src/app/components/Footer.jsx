@@ -1,5 +1,5 @@
 import Link from "next/link";
-import clinicConfig from "../lib/clinicConfig";
+import { clinicConfig } from "../lib/clinic-config";
 
 /* ── Social icon SVGs ─────────────────────────────────────────────────────── */
 function FacebookIcon() {
@@ -40,7 +40,7 @@ export default function Footer() {
   const { name, phone, email, address, tagline, nav, hours, social,
           googleMapsUrl, practoUrl, services } = clinicConfig;
 
-  const waNumber = clinicConfig.whatsapp.replace(/[^0-9]/g, "");
+  const waNumber = clinicConfig.contact.phone_whatsapp.replace(/[^0-9]/g, "");
   const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(clinicConfig.messages.appointment)}`;
 
   /* Top 5 services for footer column */

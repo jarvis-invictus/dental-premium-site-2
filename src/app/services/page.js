@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ServiceCard from "../components/ServiceCard";
 import WhatsAppWidget from "../components/WhatsAppWidget";
-import clinicConfig from "../lib/clinicConfig";
+import { clinicConfig } from "../lib/clinic-config";
 import serviceData from "../lib/serviceData";
 import HeroHeading from "../components/ui/HeroHeading";
 import { SectionGrid } from "../components/ui/SectionGrid";

@@ -1,4 +1,4 @@
-import clinicConfig from "@/app/lib/clinicConfig";
+import { clinicConfig } from "@/app/lib/clinic-config";
 
 const domain =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -25,8 +25,8 @@ export function getLocalBusinessSchema() {
         description: "Full-service dental clinic in Pune offering painless, affordable care for the whole family — root canal, implants, braces, cosmetic dentistry, and pediatric dentistry.",
         image: `${domain}/images/logo.jpg`,
         url: domain,
-        telephone: clinicConfig.phone,
-        email: clinicConfig.email,
+        telephone: clinicConfig.contact.phone_primary,
+        email: clinicConfig.contact.email,
         priceRange: "₹₹",
         foundingDate: "2005",
         areaServed: {
@@ -35,8 +35,8 @@ export function getLocalBusinessSchema() {
         },
         address: {
           "@type": "PostalAddress",
-          streetAddress: clinicConfig.address,
-          addressLocality: clinicConfig.doctor.city,
+          streetAddress: clinicConfig.contact.address_full,
+          addressLocality: 'Pune',
           addressRegion: "Maharashtra",
           postalCode: "411005",
           addressCountry: "IN",
@@ -46,12 +46,12 @@ export function getLocalBusinessSchema() {
           latitude: 18.5304,
           longitude: 73.8567,
         },
-        hasMap: clinicConfig.googleMapsUrl,
+        hasMap: clinicConfig.contact.google_maps_url,
         contactPoint: {
           "@type": "ContactPoint",
-          telephone: clinicConfig.phone,
+          telephone: clinicConfig.contact.phone_primary,
           contactType: "customer service",
-          email: clinicConfig.email,
+          email: clinicConfig.contact.email,
           availableLanguage: ["English", "Hindi", "Marathi"],
           areaServed: "IN",
         },
@@ -71,7 +71,7 @@ export function getLocalBusinessSchema() {
         ],
         aggregateRating: {
           "@type": "AggregateRating",
-          ratingValue: clinicConfig.googleRating,
+          ratingValue: clinicConfig.stats.google_rating,
           bestRating: "5",
           reviewCount: "2000",
         },
@@ -94,7 +94,7 @@ export function getLocalBusinessSchema() {
         "@id": `${domain}/#website`,
         url: domain,
         name: clinicConfig.name,
-        description: clinicConfig.seo.description,
+        description: 'Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.',
         inLanguage: "en-IN",
         publisher: { "@id": `${domain}/#dentist` },
       },

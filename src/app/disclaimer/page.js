@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import clinicConfig from "../lib/clinicConfig";
+import { clinicConfig } from "../lib/clinic-config";
 import { generateMeta } from "@/lib/meta";
 
 export const metadata = generateMeta("disclaimer");
@@ -64,8 +64,8 @@ export default function DisclaimerPage() {
             <h2>6. Contact</h2>
             <p>
               For a professional consultation, call{" "}
-              <a href={`tel:${clinicConfig.phone}`}>{clinicConfig.phone}</a> or visit our clinic at{" "}
-              {clinicConfig.address}.
+              <a href={`tel:${clinicConfig.contact.phone_primary}`}>{clinicConfig.contact.phone_primary}</a> or visit our clinic at{" "}
+              {clinicConfig.contact.address_full}.
             </p>
           </div>
         </section>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
-import clinicConfig from "../lib/clinicConfig";
+import { clinicConfig } from "../lib/clinic-config";
 
 /* ── Time slots: 9am–8pm, 30-min intervals ────────────────────────────────── */
 const TIME_SLOTS = Array.from({ length: 23 }, (_, i) => {
@@ -125,7 +125,7 @@ export default function ContactForm() {
       } catch { /* non-blocking */ }
     }
 
-    const wa = clinicConfig.whatsapp.replace(/[^0-9]/g, "");
+    const wa = clinicConfig.contact.phone_whatsapp.replace(/[^0-9]/g, "");
     const msg = [
       `*New Appointment Request*`,
       `Name: ${payload.name}`,
@@ -181,7 +181,7 @@ export default function ContactForm() {
           <FieldWrapper id="service" label="Service Required">
             <select id="service" name="service" value={form.service} onChange={handleChange} className={inputCls(false)}>
               <option value="">Select a service</option>
-              {clinicConfig.services.map((s) => <option key={s} value={s}>{s}</option>)}
+              {clinicConfig.services.map((s) => <option key={s.id || s.title} value={s.title}>{s.title}</option>)}
             </select>
           </FieldWrapper>
         </div>

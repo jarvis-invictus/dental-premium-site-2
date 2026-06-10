@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BlurFade } from "./ui/BlurFade";
-import clinicConfig from "../lib/clinicConfig";
+import { clinicConfig } from "../lib/clinic-config";
 
 /* Professional dental photo from Unsplash (free to use) */
 const HERO_IMAGE = "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=900&auto=format&fit=crop&q=80";
@@ -73,7 +73,7 @@ export default function Hero() {
             <BlurFade delay={0.38} duration={0.5} inView>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href={`https://wa.me/${clinicConfig.whatsapp.replace(/[^0-9]/g,"")}?text=${encodeURIComponent("Hello! I'd like to book a free consultation at " + clinicConfig.name)}`}
+                  href={`https://wa.me/${clinicConfig.contact.phone_whatsapp.replace(/[^0-9]/g,"")}?text=${encodeURIComponent("Hello! I'd like to book a free consultation at " + clinicConfig.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full transition-colors shadow-md"

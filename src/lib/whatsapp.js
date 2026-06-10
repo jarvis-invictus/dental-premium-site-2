@@ -1,6 +1,6 @@
-import clinicConfig from "@/app/lib/clinicConfig";
+import { clinicConfig } from "@/app/lib/clinic-config";
 
-const waNumber = clinicConfig.whatsapp.replace(/[^0-9]/g, "");
+const waNumber = clinicConfig.contact.phone_whatsapp.replace(/[^0-9]/g, "");
 
 /**
  * Build a wa.me URL from a raw message string.
@@ -18,7 +18,7 @@ function buildUrl(message) {
  * @param {string} [patientName]
  */
 export function openWhatsApp(messageType = "consultation", patientName = "") {
-  let message = clinicConfig.messages[messageType] ?? clinicConfig.messages.consultation;
+  let message = clinicConfig.messages[messageType] ?? clinicConfig.whatsapp_default_message;
 
   if (patientName && message.includes("[PATIENT_NAME]")) {
     message = message.replace("[PATIENT_NAME]", patientName);
@@ -51,6 +51,6 @@ export function openWhatsAppAppointment(formData) {
  * @returns {string}
  */
 export function getWhatsAppUrl(messageType = "consultation") {
-  const message = clinicConfig.messages[messageType] ?? clinicConfig.messages.consultation;
+  const message = clinicConfig.messages[messageType] ?? clinicConfig.whatsapp_default_message;
   return buildUrl(message);
 }

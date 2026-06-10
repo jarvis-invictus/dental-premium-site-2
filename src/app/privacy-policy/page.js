@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import clinicConfig from "../lib/clinicConfig";
+import { clinicConfig } from "../lib/clinic-config";
 import { generateMeta } from "@/lib/meta";
 
 export const metadata = generateMeta("privacy");
@@ -68,8 +68,8 @@ export default function PrivacyPolicyPage() {
             <h2>7. Contact Us</h2>
             <p>
               For any privacy-related queries, contact us at{" "}
-              <a href={`mailto:${clinicConfig.email}`}>{clinicConfig.email}</a> or call{" "}
-              <a href={`tel:${clinicConfig.phone}`}>{clinicConfig.phone}</a>.
+              <a href={`mailto:${clinicConfig.contact.email}`}>{clinicConfig.contact.email}</a> or call{" "}
+              <a href={`tel:${clinicConfig.contact.phone_primary}`}>{clinicConfig.contact.phone_primary}</a>.
             </p>
           </div>
         </section>

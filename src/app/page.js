@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import ServiceCard from "./components/ServiceCard";
-import clinicConfig from "./lib/clinicConfig";
+import { clinicConfig } from "@/app/lib/clinic-config";
 import { SectionGrid } from "./components/ui/SectionGrid";
 import { getFAQSchema } from "@/lib/schemaMarkup";
 
@@ -15,20 +15,20 @@ const FAQ = dynamic(() => import("./components/FAQ"));
 const WhatsAppWidget = dynamic(() => import("./components/WhatsAppWidget"), { ssr: false });
 
 export const metadata = {
-  title: clinicConfig.seo.title,
-  description: clinicConfig.seo.description,
-  keywords: clinicConfig.seo.keywords,
+  title: `${clinicConfig.name} - ${clinicConfig.tagline}`,
+  description: 'Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.',
+  keywords: ["dental clinic", "dentist Pune", "teeth whitening", "dental implants", "orthodontics", "painless dentistry"],
   openGraph: {
-    title: clinicConfig.seo.title,
-    description: clinicConfig.seo.description,
+    title: `${clinicConfig.name} - ${clinicConfig.tagline}`,
+    description: 'Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.',
     type: "website",
     locale: "en_IN",
     siteName: clinicConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: clinicConfig.seo.title,
-    description: clinicConfig.seo.description,
+    title: `${clinicConfig.name} - ${clinicConfig.tagline}`,
+    description: 'Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.',
   },
 };
 
@@ -49,8 +49,8 @@ const whyUs = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
       </svg>
     ),
-    title: `${clinicConfig.experienceYears}+ Years of Trust`,
-    desc: `Serving ${clinicConfig.happyPatients} happy patients in ${clinicConfig.doctor.city} with compassionate care since 2005.`,
+    title: `${clinicConfig.doctors[0].experience_years}+ Years of Trust`,
+    desc: `Serving ${clinicConfig.stats.patients_treated} happy patients in ${'Pune'} with compassionate care since 2005.`,
   },
   {
     icon: (
@@ -107,16 +107,16 @@ const schema = {
   name: clinicConfig.name,
   image: `${process.env.NEXT_PUBLIC_SITE_URL || "https://smilecare.in"}/images/logo.jpg`,
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://smilecare.in",
-  telephone: clinicConfig.phone,
+  telephone: clinicConfig.contact.phone_primary,
   address: {
     "@type": "PostalAddress",
-    streetAddress: clinicConfig.address,
-    addressLocality: clinicConfig.doctor.city,
+    streetAddress: clinicConfig.contact.address_full,
+    addressLocality: 'Pune',
     addressCountry: "IN",
   },
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: clinicConfig.googleRating,
+    ratingValue: clinicConfig.stats.google_rating,
     reviewCount: 850,
   },
   openingHours: ["Mo-Sa 09:00-20:00", "Su 10:00-14:00"],
@@ -124,8 +124,8 @@ const schema = {
 
 /* ── Page ─────────────────────────────────────────────────────────────────── */
 export default function HomePage() {
-  const waNumber = clinicConfig.whatsapp.replace(/[^0-9]/g, "");
-  const mapsEmbedSrc = `https://www.google.com/maps/embed/v1/place?key=${clinicConfig.googleMapsKey}&q=${encodeURIComponent(clinicConfig.address)}`;
+  const waNumber = clinicConfig.contact.phone_whatsapp.replace(/[^0-9]/g, "");
+  const mapsEmbedSrc = `https://www.google.com/maps/embed/v1/place?key=${clinicConfig.googleMapsKey}&q=${encodeURIComponent(clinicConfig.contact.address_full)}`;
 
   return (
     <>
@@ -151,7 +151,7 @@ export default function HomePage() {
             <div className="text-center mb-12">
               <span className="badge mb-3">Why SmileCare</span>
               <h2 className="section-title">Why Patients Choose Us</h2>
-              <p className="section-subtitle">World-class dentistry with a personal touch — right here in {clinicConfig.doctor.city}.</p>
+              <p className="section-subtitle">World-class dentistry with a personal touch — right here in {'Pune'}.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {whyUs.map((item) => (
@@ -259,7 +259,7 @@ export default function HomePage() {
             <div className="text-center mb-10">
               <span className="badge mb-3">Find Us</span>
               <h2 className="section-title">Visit Our Clinic</h2>
-              <p className="text-gray-500 text-sm">{clinicConfig.address}</p>
+              <p className="text-gray-500 text-sm">{clinicConfig.contact.address_full}</p>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg w-full h-80 border border-gray-200 relative bg-gray-100">
               <iframe
@@ -272,7 +272,7 @@ export default function HomePage() {
               />
             </div>
             <div className="text-center mt-4">
-              <a href={clinicConfig.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-primary-blue hover:underline">
+              <a href={clinicConfig.contact.google_maps_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-primary-blue hover:underline">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                 Open in Google Maps
               </a>

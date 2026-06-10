@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { navLinks } from "../lib/data";
-import clinicConfig from "../lib/clinicConfig";
+
+import { clinicConfig } from "../lib/clinic-config";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,14 +17,14 @@ export default function Footer() {
               {clinicConfig.name.split(" ")[0]}
             </Link>
             <p className="text-sm leading-relaxed text-gray-400">
-              {clinicConfig.tagline}. Committed to delivering healthy, confident smiles for over {clinicConfig.experienceYears} years.
+              {clinicConfig.tagline}. Committed to delivering healthy, confident smiles for over {clinicConfig.doctors[0].experience_years} years.
             </p>
           </div>
 
           <div>
             <h4 className="font-semibold text-white mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {navLinks.map(({ href, label }) => (
+              {[{ href: '/', label: 'Home' }, { href: '/services', label: 'Services' }, { href: '/about', label: 'About' }, { href: '/contact', label: 'Contact' }].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="text-sm text-gray-400 hover:text-white transition-colors">
                     {label}
@@ -37,15 +37,15 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-4">Contact</h4>
             <address className="not-italic space-y-3 text-sm text-gray-400">
-              <p className="leading-relaxed">{clinicConfig.address}</p>
+              <p className="leading-relaxed">{clinicConfig.contact.address_full}</p>
               <p>
-                <a href={`tel:${clinicConfig.phone}`} className="hover:text-white transition-colors font-medium text-gray-300">
-                  {clinicConfig.phone}
+                <a href={`tel:${clinicConfig.contact.phone_primary}`} className="hover:text-white transition-colors font-medium text-gray-300">
+                  {clinicConfig.contact.phone_primary}
                 </a>
               </p>
               <p>
-                <a href={`mailto:${clinicConfig.email}`} className="hover:text-white transition-colors">
-                  {clinicConfig.email}
+                <a href={`mailto:${clinicConfig.contact.email}`} className="hover:text-white transition-colors">
+                  {clinicConfig.contact.email}
                 </a>
               </p>
             </address>

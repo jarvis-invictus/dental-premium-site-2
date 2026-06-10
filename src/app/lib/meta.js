@@ -1,4 +1,4 @@
-import clinicConfig from "@/app/lib/clinicConfig";
+import { clinicConfig } from "@/app/lib/clinic-config";
 
 const domain =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -6,9 +6,9 @@ const domain =
   "https://smilecare.in";
 
 const base = {
-  title: clinicConfig.seo.title,
-  description: clinicConfig.seo.description,
-  keywords: clinicConfig.seo.keywords,
+  title: `${clinicConfig.name} - ${clinicConfig.tagline}`,
+  description: 'Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.',
+  keywords: ["dental clinic", "dentist Pune", "teeth whitening", "dental implants", "orthodontics", "painless dentistry"],
   metadataBase: new URL(domain),
   openGraph: {
     type: "website",
@@ -26,30 +26,30 @@ const base = {
 const pages = {
   home: {
     ...base,
-    title: clinicConfig.seo.title,
-    description: clinicConfig.seo.description,
-    openGraph: { ...base.openGraph, title: clinicConfig.seo.title },
-    twitter: { ...base.twitter, title: clinicConfig.seo.title },
+    title: `${clinicConfig.name} - ${clinicConfig.tagline}`,
+    description: 'Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.',
+    openGraph: { ...base.openGraph, title: `${clinicConfig.name} - ${clinicConfig.tagline}` },
+    twitter: { ...base.twitter, title: `${clinicConfig.name} - ${clinicConfig.tagline}` },
   },
   services: {
     ...base,
     title: `Dental Services | ${clinicConfig.name}`,
-    description: `Complete dental services in ${clinicConfig.doctor.city}. Root canal, implants, braces, kids dentistry & smile design. Starting ₹999.`,
+    description: `Complete dental services in ${'Pune'}. Root canal, implants, braces, kids dentistry & smile design. Starting ₹999.`,
   },
   about: {
     ...base,
     title: `About Us | ${clinicConfig.name}`,
-    description: `${clinicConfig.experienceYears}+ years of trusted dental care in ${clinicConfig.doctor.city}. Meet ${clinicConfig.doctor.name} and our team.`,
+    description: `${clinicConfig.doctors[0].experience_years}+ years of trusted dental care in ${'Pune'}. Meet ${clinicConfig.doctors[0].name} and our team.`,
   },
   contact: {
     ...base,
     title: `Contact | ${clinicConfig.name}`,
-    description: `Book an appointment at our ${clinicConfig.doctor.city} clinic. Call ${clinicConfig.phone} or WhatsApp. Open Mon–Sat 9 AM–8 PM.`,
+    description: `Book an appointment at our ${'Pune'} clinic. Call ${clinicConfig.contact.phone_primary} or WhatsApp. Open Mon–Sat 9 AM–8 PM.`,
   },
   gallery: {
     ...base,
     title: `Before & After Gallery | ${clinicConfig.name}`,
-    description: `See real patient results from ${clinicConfig.name} in ${clinicConfig.doctor.city}. Root canal, implants, orthodontics & smile makeovers.`,
+    description: `See real patient results from ${clinicConfig.name} in ${'Pune'}. Root canal, implants, orthodontics & smile makeovers.`,
   },
   privacy: {
     ...base,

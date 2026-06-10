@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import clinicConfig from "./lib/clinicConfig";
+import { clinicConfig } from "@/app/lib/clinic-config";
 import { getLocalBusinessSchema } from "@/lib/schemaMarkup";
 import { GridPattern } from "./components/ui/grid-pattern";
 
@@ -9,24 +9,24 @@ const gaId = process.env.NEXT_PUBLIC_GA_ID;
 export const metadata = {
   metadataBase: new URL(domain),
   title: {
-    default: clinicConfig.seo.title,
+    default: `${clinicConfig.name} - ${clinicConfig.tagline}`,
     template: `%s | ${clinicConfig.name}`,
   },
-  description: clinicConfig.seo.description,
-  keywords: clinicConfig.seo.keywords,
+  description: 'Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.',
+  keywords: ["dental clinic", "dentist Pune", "teeth whitening", "dental implants", "orthodontics", "painless dentistry"],
   authors: [{ name: clinicConfig.name }],
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: domain,
     siteName: clinicConfig.name,
-    description: clinicConfig.seo.description,
+    description: 'Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.',
     images: [{ url: "/images/og-default.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: clinicConfig.seo.title,
-    description: clinicConfig.seo.description,
+    title: `${clinicConfig.name} - ${clinicConfig.tagline}`,
+    description: 'Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.',
     images: ["/images/og-default.jpg"],
   },
   robots: {

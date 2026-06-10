@@ -1,7 +1,8 @@
 import Image from "next/image";
-import clinicConfig from "../lib/clinicConfig";
+import { clinicConfig } from "../lib/clinic-config";
 
-const { doctor, whatsapp } = clinicConfig;
+const doctor = clinicConfig.doctors[0];
+const whatsapp = clinicConfig.contact.phone_whatsapp;
 
 /* ── IDA Badge ────────────────────────────────────────────────────────────── */
 function IDABadge({ membershipNo }) {
@@ -109,7 +110,7 @@ export default function DoctorProfile() {
 
         {/* Trust signals */}
         <div className="flex flex-wrap gap-2 justify-center">
-          {doctor.idaMember && <IDABadge membershipNo={doctor.idaMembershipNo} />}
+          {doctor.ida_number && <IDABadge membershipNo={doctor.ida_number} />}
 
           <div className="inline-flex items-center gap-2 px-3 py-2 bg-blue-50 border border-primary-mint rounded-xl">
             <svg
@@ -144,25 +145,19 @@ export default function DoctorProfile() {
           </h2>
           <p className="text-primary-blue font-medium mt-1">{doctor.qualifications}</p>
           <p className="text-xs text-gray-400 mt-1">
-            Reg. No: {doctor.registration}
+            Reg. No: {doctor.ida_number || "Not specified"}
           </p>
         </div>
 
-        {/* Experience + University */}
+        {/* Experience */}
         <div className="flex flex-wrap gap-3">
           <div className="flex items-center gap-2 bg-blue-50 rounded-xl px-4 py-2">
             <svg className="w-5 h-5 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span className="text-sm font-semibold text-neutral-dark">
-              {doctor.experienceYears}+ Years Experience
+              {doctor.experience_years}+ Years Experience
             </span>
-          </div>
-          <div className="flex items-center gap-2 bg-blue-50 rounded-xl px-4 py-2">
-            <svg className="w-5 h-5 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-            <span className="text-sm text-neutral-dark">{doctor.university}</span>
           </div>
         </div>
 
@@ -172,7 +167,7 @@ export default function DoctorProfile() {
             Languages Spoken
           </h3>
           <div className="flex flex-wrap gap-2">
-            {doctor.languages.map((lang) => (
+            {doctor.languages?.map((lang) => (
               <span
                 key={lang}
                 className="px-3 py-1 text-sm font-medium bg-primary-mint text-primary-blue rounded-full"
@@ -183,13 +178,13 @@ export default function DoctorProfile() {
           </div>
         </div>
 
-        {/* Special interests */}
+        {/* Specializations */}
         <div>
           <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-            Special Interests
+            Specializations
           </h3>
           <ul className="space-y-1.5">
-            {doctor.specialInterests.map((interest) => (
+            {doctor.specializations?.map((interest) => (
               <BulletItem key={interest} text={interest} />
             ))}
           </ul>

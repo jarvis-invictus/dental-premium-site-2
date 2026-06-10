@@ -10,9 +10,9 @@ import WhatsAppWidget from "../../components/WhatsAppWidget";
 import serviceData from "../../lib/serviceData";
 import { Boxes } from "../../components/ui/BackgroundBoxes";
 import { SectionGrid } from "../../components/ui/SectionGrid";
-import clinicConfig from "../../lib/clinicConfig";
+import { clinicConfig } from "@/app/lib/clinic-config";
 
-const waNumber = clinicConfig.whatsapp.replace(/[^0-9]/g, "");
+const waNumber = clinicConfig.contact.phone_whatsapp.replace(/[^0-9]/g, "");
 function waLink(service) {
   return `https://wa.me/${waNumber}?text=${encodeURIComponent(
     `Hello! I'd like to book a consultation for ${service} at ${clinicConfig.name}.`

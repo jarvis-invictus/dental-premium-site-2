@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { navLinks } from "../lib/data";
+
 import { cn } from "../lib/utils";
-import clinicConfig from "../lib/clinicConfig";
+import { clinicConfig } from "../lib/clinic-config";
 import NavHeader from "./ui/NavHeader";
 
 export default function Navbar() {
@@ -28,7 +28,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href={`https://wa.me/${clinicConfig.whatsapp.replace(/[^0-9]/g,"")}?text=${encodeURIComponent("Hello! I'd like to book an appointment at " + clinicConfig.name + ".")}`}
+            href={`https://wa.me/${clinicConfig.contact.phone_whatsapp.replace(/[^0-9]/g,"")}?text=${encodeURIComponent("Hello! I'd like to book an appointment at " + clinicConfig.name + ".")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-sm py-2 px-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full transition-colors shadow-sm"
@@ -58,7 +58,7 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden border-t border-gray-100 bg-white px-4 pb-4">
           <ul className="flex flex-col gap-1 mt-3">
-            {navLinks.map(({ href, label }) => (
+            {[{ href: '/', label: 'Home' }, { href: '/services', label: 'Services' }, { href: '/about', label: 'About' }, { href: '/contact', label: 'Contact' }].map(({ href, label }) => (
               <li key={href}>
                 <Link
                   href={href}
@@ -76,7 +76,7 @@ export default function Navbar() {
             ))}
           </ul>
           <a
-            href={`https://wa.me/${clinicConfig.whatsapp.replace(/[^0-9]/g,"")}?text=${encodeURIComponent("Hello! I'd like to book an appointment at " + clinicConfig.name + ".")}`}
+            href={`https://wa.me/${clinicConfig.contact.phone_whatsapp.replace(/[^0-9]/g,"")}?text=${encodeURIComponent("Hello! I'd like to book an appointment at " + clinicConfig.name + ".")}`}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
