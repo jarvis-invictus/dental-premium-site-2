@@ -3,6 +3,14 @@ export const clinicConfig = {
   tagline: "Gentle, Painless Dental Care You Can Trust",
   established: 2004,
 
+  // Top-level city — set this when customising for a new client
+  city: "Pune",
+
+  seo: {
+    description: "Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.",
+    keywords: ["dental clinic", "dentist Pune", "teeth whitening", "dental implants", "orthodontics", "painless dentistry"],
+  },
+
   contact: {
     phone_primary: "+91 96995 77641",
     phone_whatsapp: "+91 96995 77641",

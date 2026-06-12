@@ -22,7 +22,7 @@ export function getLocalBusinessSchema() {
     address: {
       "@type": "PostalAddress",
       streetAddress: clinicConfig.contact.address_full,
-      addressLocality: 'Pune',
+      addressLocality: clinicConfig.city,
       addressRegion: "Karnataka",
       postalCode: "560034",
       addressCountry: "IN",
@@ -31,6 +31,10 @@ export function getLocalBusinessSchema() {
       "@type": "GeoCoordinates",
       latitude: 12.9716,
       longitude: 77.5946,
+    },
+    areaServed: {
+      "@type": "City",
+      name: clinicConfig.city,
     },
     openingHoursSpecification: [
       {
@@ -105,7 +109,7 @@ export function getDoctorSchema() {
     "@context": "https://schema.org",
     "@type": "Physician",
     name: doc.name,
-    description: `${doc.qualifications} — ${doc.experienceYears} years experience in ${doc.city}`,
+    description: clinicConfig.seo.description,
     medicalSpecialty: "Dentist",
     worksFor: {
       "@type": "Dentist",

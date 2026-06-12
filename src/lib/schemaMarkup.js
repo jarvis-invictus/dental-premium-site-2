@@ -31,12 +31,12 @@ export function getLocalBusinessSchema() {
         foundingDate: "2005",
         areaServed: {
           "@type": "City",
-          name: "Pune",
+          name: clinicConfig.city,
         },
         address: {
           "@type": "PostalAddress",
           streetAddress: clinicConfig.contact.address_full,
-          addressLocality: 'Pune',
+          addressLocality: clinicConfig.city,
           addressRegion: "Maharashtra",
           postalCode: "411005",
           addressCountry: "IN",
@@ -94,7 +94,7 @@ export function getLocalBusinessSchema() {
         "@id": `${domain}/#website`,
         url: domain,
         name: clinicConfig.name,
-        description: 'Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.',
+        description: clinicConfig.seo.description,
         inLanguage: "en-IN",
         publisher: { "@id": `${domain}/#dentist` },
       },
