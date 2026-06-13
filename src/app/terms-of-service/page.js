@@ -56,7 +56,7 @@ export default function TermsOfServicePage() {
             <h2>6. Governing Law</h2>
             <p>
               These terms are governed by the laws of India. Any disputes shall be subject to the exclusive
-              jurisdiction of courts in {'Pune'}, Maharashtra.
+              jurisdiction of courts in {clinicConfig.city}, Maharashtra.
             </p>
 
             <h2>7. Changes to Terms</h2>

@@ -16,11 +16,11 @@ const WhatsAppWidget = dynamic(() => import("./components/WhatsAppWidget"), { ss
 
 export const metadata = {
   title: `${clinicConfig.name} - ${clinicConfig.tagline}`,
-  description: 'Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.',
-  keywords: ["dental clinic", "dentist Pune", "teeth whitening", "dental implants", "orthodontics", "painless dentistry"],
+  description: clinicConfig.seo.description,
+  keywords: clinicConfig.seo.keywords,
   openGraph: {
     title: `${clinicConfig.name} - ${clinicConfig.tagline}`,
-    description: 'Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.',
+    description: clinicConfig.seo.description,
     type: "website",
     locale: "en_IN",
     siteName: clinicConfig.name,
@@ -28,7 +28,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${clinicConfig.name} - ${clinicConfig.tagline}`,
-    description: 'Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.',
+    description: clinicConfig.seo.description,
   },
 };
 
@@ -50,7 +50,7 @@ const whyUs = [
       </svg>
     ),
     title: `${clinicConfig.doctors[0].experience_years}+ Years of Trust`,
-    desc: `Serving ${clinicConfig.stats.patients_treated} happy patients in ${'Pune'} with compassionate care since 2005.`,
+    desc: `Serving ${clinicConfig.stats.patients_treated} happy patients in ${clinicConfig.city} with compassionate care since 2005.`,
   },
   {
     icon: (
@@ -111,7 +111,7 @@ const schema = {
   address: {
     "@type": "PostalAddress",
     streetAddress: clinicConfig.contact.address_full,
-    addressLocality: 'Pune',
+    addressLocality: clinicConfig.city,
     addressCountry: "IN",
   },
   aggregateRating: {
@@ -151,7 +151,7 @@ export default function HomePage() {
             <div className="text-center mb-12">
               <span className="badge mb-3">Why SmileCare</span>
               <h2 className="section-title">Why Patients Choose Us</h2>
-              <p className="section-subtitle">World-class dentistry with a personal touch — right here in {'Pune'}.</p>
+              <p className="section-subtitle">World-class dentistry with a personal touch — right here in {clinicConfig.city}.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {whyUs.map((item) => (

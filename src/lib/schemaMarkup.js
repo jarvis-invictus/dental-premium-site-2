@@ -22,7 +22,7 @@ export function getLocalBusinessSchema() {
         "@type": "Dentist",
         "@id": `${domain}/#dentist`,
         name: clinicConfig.name,
-        description: "Full-service dental clinic in Pune offering painless, affordable care for the whole family — root canal, implants, braces, cosmetic dentistry, and pediatric dentistry.",
+        description: `Full-service dental clinic in ${clinicConfig.city} offering painless, affordable care for the whole family \u2014 root canal, implants, braces, cosmetic dentistry, and pediatric dentistry.`,
         image: `${domain}/images/logo.jpg`,
         url: domain,
         telephone: clinicConfig.contact.phone_primary,

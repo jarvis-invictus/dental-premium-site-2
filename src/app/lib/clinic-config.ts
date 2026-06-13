@@ -7,8 +7,8 @@ export const clinicConfig = {
   city: "Pune",
 
   seo: {
-    description: "Professional dental care for the whole family in Pune. Book your appointment in 30 seconds.",
-    keywords: ["dental clinic", "dentist Pune", "teeth whitening", "dental implants", "orthodontics", "painless dentistry"],
+    get description() { return `Professional dental care for the whole family in ${clinicConfig.city}. Book your appointment in 30 seconds.`; },
+    get keywords() { return ["dental clinic", `dentist ${clinicConfig.city}`, "teeth whitening", "dental implants", "orthodontics", "painless dentistry"]; },
   },
 
   contact: {

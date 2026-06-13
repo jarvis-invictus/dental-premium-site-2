@@ -10,7 +10,7 @@ import { getDoctorSchema } from "@/lib/schemaMarkup";
 
 export const metadata = {
   title: `About Us | ${clinicConfig.name}`,
-  description: `Learn about ${clinicConfig.name} — ${clinicConfig.doctors[0].experience_years}+ years of gentle, expert dental care in ${'Pune'}.`,
+  description: `Learn about ${clinicConfig.name} — ${clinicConfig.doctors[0].experience_years}+ years of gentle, expert dental care in ${clinicConfig.city}.`,
 };
 
 const stats = [
@@ -21,7 +21,7 @@ const stats = [
 ];
 
 const timeline = [
-  { year: "2005", title: "Clinic Founded", desc: `${clinicConfig.name} opened its doors in ${'Pune'} with a vision to make world-class dental care accessible and painless.` },
+  { year: "2005", title: "Clinic Founded", desc: `${clinicConfig.name} opened its doors in ${clinicConfig.city} with a vision to make world-class dental care accessible and painless.` },
   { year: "2009", title: "Digital X-Ray & RVG", desc: "Upgraded to digital radiography, reducing patient radiation exposure by 80% and improving diagnostic accuracy." },
   { year: "2013", title: "Orthodontics Wing Added", desc: "Launched a dedicated orthodontics department offering metal braces, ceramic braces, and Invisalign." },
   { year: "2017", title: "Implantology Centre", desc: "Opened an in-house implantology centre with 3D CBCT scanning and computer-guided implant surgery." },
@@ -54,7 +54,7 @@ const missionVision = {
   vision: {
     iconName: "Eye",
     label: "Vision",
-    text: `To be ${'Pune'}'s most trusted dental destination — where advanced technology meets compassionate care, giving every patient a reason to smile.`,
+    text: `To be ${clinicConfig.city}'s most trusted dental destination — where advanced technology meets compassionate care, giving every patient a reason to smile.`,
   },
 };
 
@@ -71,7 +71,7 @@ export default function AboutPage() {
         {/* ── Hero ──────────────────────────────────────────────────── */}
         <div className="relative h-64 bg-gradient-to-br from-primary-blue to-primary-teal flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-black/30" />
-          <HeroHeading badge="Our Story" title="About Us" subtitle={`Caring for ${'Pune'} smiles since 2005.`} />
+          <HeroHeading badge="Our Story" title="About Us" subtitle={`Caring for ${clinicConfig.city} smiles since 2005.`} />
         </div>
 
         {/* ── All animated sections (client component) ──────────────── */}
