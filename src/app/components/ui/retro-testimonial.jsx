@@ -30,7 +30,7 @@ const Carousel = ({ items }) => {
 
   return (
     <div className="relative w-full mt-10 overflow-hidden">
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes marquee {
           0%   { transform: translateX(0); }
           100% { transform: translateX(-50%); }
@@ -44,7 +44,7 @@ const Carousel = ({ items }) => {
         .marquee-track.paused {
           animation-play-state: paused;
         }
-      `}</style>
+      `}} />
 
       {/* fade edges */}
       <div className="pointer-events-none absolute left-0 top-0 h-full w-16 z-10 bg-gradient-to-r from-white/80 to-transparent" />
@@ -133,18 +133,18 @@ const TestimonialCard = ({
                 <X className="h-5 w-5 text-white" />
               </button>
               <p className="text-gray-500 text-base font-medium underline underline-offset-8 mb-2">
-                {testimonial.designation}
+                {testimonial.designation || "Patient"}
               </p>
               <p className="text-2xl md:text-3xl font-semibold text-neutral-dark mt-2">
                 {testimonial.name}
               </p>
               <div className="py-6 text-gray-700 text-lg font-normal leading-relaxed tracking-wide">
                 <Quote className="h-5 w-5 text-primary-blue mb-3" />
-                {testimonial.description}
+                {testimonial.text || testimonial.description}
               </div>
-              {testimonial.procedure && (
+              {(testimonial.treatment || testimonial.procedure) && (
                 <span className="inline-block px-3 py-1 bg-primary-blue/10 text-primary-blue text-xs font-semibold rounded-full">
-                  {testimonial.procedure}
+                  {testimonial.treatment || testimonial.procedure}
                 </span>
               )}
             </motion.div>
@@ -167,12 +167,12 @@ const TestimonialCard = ({
             style={{ backgroundImage: "radial-gradient(circle, #0ea5e9 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
 
           <div className="relative z-10 flex flex-col items-center px-5 text-center">
-            <ProfileImage src={testimonial.profileImage} alt={testimonial.name} objectPosition={testimonial.objectPosition} objectScale={testimonial.objectScale} />
+            <ProfileImage src={testimonial.profileImage || "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=200&auto=format&fit=crop"} alt={testimonial.name} objectPosition={testimonial.objectPosition || "center center"} objectScale={testimonial.objectScale || 1} />
 
             <p className="text-gray-700 text-base md:text-lg font-normal mt-5 leading-snug px-2">
-              {testimonial.description.length > 110
-                ? `${testimonial.description.slice(0, 110)}…`
-                : testimonial.description}
+              {((testimonial.text || testimonial.description || "").length > 110)
+                ? `${(testimonial.text || testimonial.description || "").slice(0, 110)}…`
+                : (testimonial.text || testimonial.description || "")}
             </p>
 
             <p className="text-neutral-dark text-lg font-semibold mt-4">
@@ -180,14 +180,14 @@ const TestimonialCard = ({
             </p>
 
             <p className="text-gray-500 text-sm font-light mt-1">
-              {testimonial.designation.length > 30
-                ? `${testimonial.designation.slice(0, 30)}…`
-                : testimonial.designation}
+              {((testimonial.designation || "Patient").length > 30)
+                ? `${(testimonial.designation || "Patient").slice(0, 30)}…`
+                : (testimonial.designation || "Patient")}
             </p>
 
-            {testimonial.procedure && (
+            {(testimonial.treatment || testimonial.procedure) && (
               <span className="mt-3 px-3 py-0.5 bg-primary-blue/10 text-primary-blue text-xs font-semibold rounded-full border border-primary-blue/20">
-                {testimonial.procedure}
+                {testimonial.treatment || testimonial.procedure}
               </span>
             )}
           </div>

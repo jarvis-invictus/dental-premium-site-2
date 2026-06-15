@@ -194,13 +194,13 @@ export default function ContactForm() {
           <div className={`rounded-xl border overflow-hidden flex flex-col sm:flex-row ${errors.date || errors.time ? "border-danger" : "border-gray-200"}`}>
             {/* Calendar */}
             <div className="flex-1 flex items-start justify-center p-3 border-b sm:border-b-0 sm:border-r border-gray-100">
-              <style>{`
+              <style dangerouslySetInnerHTML={{ __html: `
                 .rdp { --rdp-accent-color: #0369a1; --rdp-background-color: #e0f2fe; margin: 0; }
                 .rdp-day_selected, .rdp-day_selected:hover { background-color: #0369a1; color: #fff; border-radius: 8px; }
                 .rdp-day:hover:not(.rdp-day_selected) { background-color: #e0f2fe; border-radius: 8px; }
                 .rdp-button:focus-visible { outline: 2px solid #0369a1; }
                 .rdp-day_disabled { opacity: 0.3; }
-              `}</style>
+              ` }} />
               <DayPicker
                 mode="single"
                 selected={selectedDate}

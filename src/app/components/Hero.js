@@ -11,10 +11,10 @@ const HERO_IMAGE = "https://images.unsplash.com/photo-1606811971618-4486d14f3f99
 
 /* Patient avatars — Indian faces from Pexels */
 const AVATARS = [
-  "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop",
-  "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop",
-  "https://images.pexels.com/photos/3771089/pexels-photo-3771089.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop",
-  "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop",
+  "https://images.unsplash.com/photo-1621887348744-6b0444f8a058?w=80&h=80&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face",
 ];
 
 const floatStyle = (delay = "0s") => ({
@@ -27,7 +27,7 @@ export default function Hero() {
 
   return (
     <section className="relative bg-white/70 overflow-hidden">
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes heroFloat {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-8px); }
@@ -40,7 +40,7 @@ export default function Hero() {
           transform: translateY(-4px) scale(1.05);
           transition: transform 0.2s ease;
         }
-      `}</style>
+      `}} />
       {/* Decorative blobs */}
       <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-blue-50 opacity-60 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] rounded-full bg-teal-50 opacity-50 blur-3xl pointer-events-none" />
