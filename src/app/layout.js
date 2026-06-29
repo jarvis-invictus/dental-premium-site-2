@@ -1,7 +1,21 @@
 import "@/styles/globals.css";
 import { clinicConfig } from "@/app/lib/clinic-config";
 import { getLocalBusinessSchema } from "@/lib/schemaMarkup";
+import { Inter, Poppins } from "next/font/google";
 import { GridPattern } from "./components/ui/grid-pattern";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-poppins",
+});
 
 const domain = process.env.NEXT_PUBLIC_SITE_URL || "https://smilecare.in";
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
@@ -46,16 +60,6 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://maps.googleapis.com" />
-        {/* Google Fonts — Poppins (heading), Inter (body) */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
-        {/* Alpine.js v3 — defer ensures it initialises after DOM is ready */}
-        <script
-          defer
-          src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"
-        />
         {/* LocalBusiness JSON-LD */}
         <script
           type="application/ld+json"
@@ -81,7 +85,7 @@ export default function RootLayout({ children }) {
           </>
         )}
       </head>
-      <body className="min-h-screen flex flex-col relative">
+      <body className={`min-h-screen flex flex-col relative ${inter.variable} ${poppins.variable}`}>
         <GridPattern
           width={40}
           height={40}

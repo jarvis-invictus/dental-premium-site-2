@@ -22,8 +22,8 @@ module.exports = {
         danger: '#E63946',
       },
       fontFamily: {
-        heading: ['Poppins', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-poppins)', 'system-ui', 'sans-serif'],
+        body: ['var(--font-inter)', 'system-ui', 'sans-serif'],
         hindi: ['Hind', 'system-ui', 'sans-serif'],
       },
       spacing: {

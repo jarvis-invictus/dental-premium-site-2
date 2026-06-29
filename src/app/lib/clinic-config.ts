@@ -170,7 +170,7 @@ export const clinicConfig = {
       treatment: "Root Canal Treatment — Age 34",
       text: "I was terrified of root canals. Dr. Patel made it completely painless \u2014 I didn't even feel a thing! Done in just one visit. Highly recommend SmileCare to everyone.",
       rating: 5,
-      profileImage: "/images/patients/priya.jpg",
+      profileImage: "/images/patients/priya.webp",
       objectPosition: "center 35%"
     },
     {
@@ -178,7 +178,7 @@ export const clinicConfig = {
       treatment: "Dental Implants — Age 45",
       text: "My implants look and feel exactly like my natural teeth. Best decision I ever made. The entire team at SmileCare was professional and incredibly caring.",
       rating: 5,
-      profileImage: "/images/patients/rajesh.jpg",
+      profileImage: "/images/patients/rajesh.webp",
       objectPosition: "center 8%",
       objectScale: 1.6
     },
@@ -187,21 +187,21 @@ export const clinicConfig = {
       treatment: "Teeth Whitening — Age 28",
       text: "Got 7 shades whiter in just one session! The results exceeded my expectations completely. Everyone keeps complimenting my smile now \u2014 I feel so confident.",
       rating: 5,
-      profileImage: "/images/patients/ananya.jpg"
+      profileImage: "/images/patients/ananya.webp"
     },
     {
       name: "Vikram Patil",
       treatment: "Kids Dentistry — Parent",
       text: "My son used to cry at every dentist visit. Dr. Priya was so patient and gentle, he now actually looks forward to going! Amazing with children.",
       rating: 5,
-      profileImage: "/images/patients/vikram.jpg"
+      profileImage: "/images/patients/vikram.webp"
     },
     {
       name: "Meena Joshi",
       treatment: "Smile Makeover — Age 52",
       text: "After years of neglecting my dental health, SmileCare gave me back my confidence with a beautiful smile. The team was non-judgmental and incredibly supportive.",
       rating: 5,
-      profileImage: "/images/patients/meena.jpg",
+      profileImage: "/images/patients/meena.webp",
       objectPosition: "35% 25%"
     },
     {
@@ -209,7 +209,7 @@ export const clinicConfig = {
       treatment: "Full Mouth Rehabilitation — Age 58",
       text: "After losing several teeth I thought I'd never smile freely again. SmileCare's full mouth rehab gave me a completely new set of teeth. The confidence it has brought me is priceless.",
       rating: 5,
-      profileImage: "/images/patients/suresh.jpg",
+      profileImage: "/images/patients/suresh.webp",
       objectPosition: "88% 15%"
     }
   ],
