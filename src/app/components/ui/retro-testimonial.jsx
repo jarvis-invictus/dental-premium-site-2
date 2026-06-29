@@ -207,7 +207,7 @@ const ProfileImage = ({ src, alt, objectPosition = "center center", objectScale 
         src={src}
         fill
         sizes="112px"
-        loading="lazy"
+        priority={true}
         alt={alt || "Patient photo"}
         unoptimized
       />
