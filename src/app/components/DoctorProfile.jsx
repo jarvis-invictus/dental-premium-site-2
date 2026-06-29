@@ -129,7 +129,7 @@ export default function DoctorProfile() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
             <div className="leading-tight">
-              <p className="text-xs font-bold text-primary-blue">{doctor.yearsInCity}+ yrs in {doctor.city}</p>
+              <p className="text-xs font-bold text-primary-blue">{doctor.experience_years}+ yrs in {clinicConfig.city}</p>
               <p className="text-[10px] text-gray-500">Local expertise</p>
             </div>
           </div>

@@ -37,11 +37,10 @@ function PractoIcon() {
 /* ── Footer ───────────────────────────────────────────────────────────────── */
 export default function Footer() {
   const year = new Date().getFullYear();
-  const { name, phone, email, address, tagline, nav, hours, social,
-          googleMapsUrl, practoUrl, services } = clinicConfig;
+  const { name, tagline, nav, hours, social, contact, services, whatsapp_default_message } = clinicConfig;
 
-  const waNumber = clinicConfig.contact.phone_whatsapp.replace(/[^0-9]/g, "");
-  const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(clinicConfig.messages.appointment)}`;
+  const waNumber = contact.phone_whatsapp.replace(/[^0-9]/g, "");
+  const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(whatsapp_default_message)}`;
 
   /* Top 5 services for footer column */
   const footerServices = (services || []).slice(0, 5);
@@ -49,8 +48,7 @@ export default function Footer() {
   const socialLinks = [
     { href: social.facebook, label: "Facebook", icon: <FacebookIcon /> },
     { href: social.instagram, label: "Instagram", icon: <InstagramIcon /> },
-    { href: googleMapsUrl, label: "Google Maps", icon: <GoogleMapsIcon /> },
-    { href: practoUrl, label: "Practo", icon: <PractoIcon /> },
+    { href: contact.google_maps_url, label: "Google Maps", icon: <GoogleMapsIcon /> },
   ];
 
   return (
@@ -75,8 +73,8 @@ export default function Footer() {
               WhatsApp Us
             </a>
             <a
-              href={`tel:${phone}`}
-              aria-label={`Call us at ${phone}`}
+              href={`tel:${contact.phone_primary}`}
+              aria-label={`Call us at ${contact.phone_primary}`}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full transition-colors text-sm"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -140,12 +138,12 @@ export default function Footer() {
             <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wide">Our Services</h4>
             <ul className="space-y-2">
               {footerServices.map((s) => (
-                <li key={s}>
+                <li key={s.id}>
                   <Link
-                    href="/services"
+                    href={`/services/${s.id}`}
                     className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
                   >
-                    {s}
+                    {s.name}
                   </Link>
                 </li>
               ))}
@@ -161,19 +159,19 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                {address}
+                {contact.address_full}
               </p>
               <p className="flex items-center gap-2">
                 <svg className="w-4 h-4 flex-shrink-0 text-primary-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <a href={`tel:${phone}`} className="hover:text-blue-400 transition-colors">{phone}</a>
+                <a href={`tel:${contact.phone_primary}`} className="hover:text-blue-400 transition-colors">{contact.phone_primary}</a>
               </p>
               <p className="flex items-center gap-2">
                 <svg className="w-4 h-4 flex-shrink-0 text-primary-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href={`mailto:${email}`} className="hover:text-blue-400 transition-colors">{email}</a>
+                <a href={`mailto:${contact.email}`} className="hover:text-blue-400 transition-colors">{contact.email}</a>
               </p>
               <div className="pt-1 space-y-1">
                 {hours.map(({ day, time }) => (

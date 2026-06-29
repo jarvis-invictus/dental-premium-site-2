@@ -201,15 +201,11 @@ const TestimonialCard = ({
 const ProfileImage = ({ src, alt, objectPosition = "center center", objectScale = 1 }) => {
   return (
     <div className="w-20 h-20 md:w-28 md:h-28 overflow-hidden rounded-full border-[3px] border-primary-blue/40 flex-none relative">
-      <Image
-        className="transition duration-300 object-cover"
+      <img
+        className="transition duration-300 object-cover w-full h-full"
         style={{ objectPosition, transform: `scale(${objectScale})`, transformOrigin: objectPosition }}
         src={src}
-        fill
-        sizes="112px"
-        priority={true}
         alt={alt || "Patient photo"}
-        unoptimized
       />
     </div>
   );
