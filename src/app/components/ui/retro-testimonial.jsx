@@ -199,17 +199,11 @@ const TestimonialCard = ({
 
 // ===== ProfileImage =====
 const ProfileImage = ({ src, alt, objectPosition = "center center", objectScale = 1 }) => {
-  const [isLoading, setLoading] = useState(true);
-
   return (
     <div className="w-20 h-20 md:w-28 md:h-28 overflow-hidden rounded-full border-[3px] border-primary-blue/40 flex-none relative">
       <Image
-        className={cn(
-          "transition duration-300 object-cover",
-          isLoading ? "blur-sm" : "blur-0"
-        )}
+        className="transition duration-300 object-cover"
         style={{ objectPosition, transform: `scale(${objectScale})`, transformOrigin: objectPosition }}
-        onLoad={() => setLoading(false)}
         src={src}
         fill
         sizes="112px"
