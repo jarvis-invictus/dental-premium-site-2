@@ -17,7 +17,7 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-const domain = process.env.NEXT_PUBLIC_SITE_URL || "https://smilecare.in";
+const domain = process.env.NEXT_PUBLIC_SITE_URL || "https://p2.invictus-ai.in";
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata = {

@@ -3,7 +3,7 @@ import { clinicConfig } from "@/app/lib/clinic-config";
 const domain =
   process.env.NEXT_PUBLIC_SITE_URL ||
   process.env.NEXT_PUBLIC_DOMAIN ||
-  "https://smilecare.in";
+  "https://p2.invictus-ai.in";
 
 const base = {
   title: `${clinicConfig.name} - ${clinicConfig.tagline}`,

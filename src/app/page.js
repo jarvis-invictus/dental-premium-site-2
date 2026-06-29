@@ -39,8 +39,8 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "Dentist",
   name: clinicConfig.name,
-  image: `${process.env.NEXT_PUBLIC_SITE_URL || "https://smilecare.in"}/images/logo.jpg`,
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://smilecare.in",
+  image: `${process.env.NEXT_PUBLIC_SITE_URL || "https://p2.invictus-ai.in"}/images/logo.jpg`,
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://p2.invictus-ai.in",
   telephone: clinicConfig.contact.phone_primary,
   address: {
     "@type": "PostalAddress",
