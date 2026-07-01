@@ -46,8 +46,8 @@ export default function Hero() {
       <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] rounded-full bg-teal-50 opacity-50 blur-3xl pointer-events-none" />
 
 
-      <div className="container-custom relative py-16 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[80vh]">
+      <div className="container-custom relative py-10 sm:py-16 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center min-h-[70vh] sm:min-h-[80vh]">
 
           {/* ── Left: Text ─────────────────────────────────────── */}
           <div className="space-y-7">
@@ -56,7 +56,7 @@ export default function Hero() {
             </BlurFade>
 
             <BlurFade delay={0.15} duration={0.5} inView>
-              <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Your Perfect{" "}
                 <span className="text-gradient">Smile</span>{" "}
                 Starts Here

@@ -16,7 +16,7 @@ export default function HeroHeading({ badge, title, subtitle }) {
         </span>
       </BlurFade>
       <BlurFade delay={0.15} duration={0.5} inView>
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mt-2">{title}</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-2">{title}</h1>
       </BlurFade>
       {subtitle && (
         <BlurFade delay={0.28} duration={0.5} inView>
