@@ -1,8 +1,8 @@
 const clinicConfig = {
   name: "SmileCare Dental Clinic",
   tagline: "Gentle, Painless Dental Care You Can Trust",
-  phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || "+919699577641",
-  whatsapp: process.env.NEXT_PUBLIC_CLINIC_WHATSAPP || "+919699577641",
+  phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || "9699577641",
+  whatsapp: process.env.NEXT_PUBLIC_CLINIC_WHATSAPP || "9699577641",
   email: "hello@smilecare.in",
   address: "123 FC Road, Shivajinagar, Pune, Maharashtra 411005",
   experienceYears: 20,

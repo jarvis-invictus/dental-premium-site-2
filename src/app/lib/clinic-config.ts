@@ -12,8 +12,8 @@ export const clinicConfig = {
   },
 
   contact: {
-    phone_primary: "+91 96995 77641",
-    phone_whatsapp: "+91 96995 77641",
+    phone_primary: "96995 77641",
+    phone_whatsapp: "96995 77641",
     email: "hello@smilecare.in",
     address_full: "123 FC Road, Shivajinagar, Pune, Maharashtra 411005",
     google_maps_url: "https://maps.google.com/?q=SmileCare+Dental+Clinic+Pune+Maharashtra",
@@ -219,7 +219,7 @@ export const clinicConfig = {
     accepts_insurance: true,
     offers_emi: false,
     emergency_available: true,
-    emergency_phone: "+91 96995 77641"
+    emergency_phone: "96995 77641"
   },
 
   stats: {
