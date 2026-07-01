@@ -58,7 +58,7 @@ export const clinicConfig = {
 
   services: [
     {
-      id: "general-dentistry",
+      id: "general",
       name: "General Dentistry",
       description: "Comprehensive exams, cleanings, fillings, and preventive care to keep your teeth healthy.",
       price_from: 0,
@@ -68,7 +68,7 @@ export const clinicConfig = {
       imageSrc: "/images/services/General Dentistry.svg"
     },
     {
-      id: "dental-implants",
+      id: "implants",
       name: "Dental Implants",
       description: "Permanent, natural-looking tooth replacements that restore function and aesthetics.",
       price_from: 0,
@@ -78,7 +78,7 @@ export const clinicConfig = {
       imageSrc: "/images/services/Dental Implants.svg"
     },
     {
-      id: "pediatric-dentistry",
+      id: "kids",
       name: "Pediatric Dentistry",
       description: "Gentle, kid-friendly dental care in a fun and comforting environment.",
       price_from: 0,
@@ -98,7 +98,7 @@ export const clinicConfig = {
       imageSrc: "/images/services/Orthodontics.svg"
     },
     {
-      id: "cosmetic-dentistry",
+      id: "cosmetic",
       name: "Cosmetic Dentistry",
       description: "Teeth whitening, veneers, bonding, and smile makeovers for a confident, radiant smile.",
       price_from: 0,
@@ -108,7 +108,7 @@ export const clinicConfig = {
       imageSrc: "/images/services/Cosmetic Dentistry.svg"
     },
     {
-      id: "emergency-dental-care",
+      id: "emergency",
       name: "Emergency Care",
       description: "Prompt care for dental emergencies including toothaches, broken teeth, and trauma.",
       price_from: 0,
