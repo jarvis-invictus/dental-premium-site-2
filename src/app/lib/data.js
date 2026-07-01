@@ -66,7 +66,7 @@ export const navLinks = [
 
 export const contactInfo = {
   address: "123 FC Road, Shivajinagar, Pune, Maharashtra 411005",
-  phone: "96995 77641",
+  phone: "+91 96995 77641",
   email: "hello@smilecare.in",
   hours: [
     { day: "Monday – Saturday", time: "9:00 AM – 8:00 PM" },
